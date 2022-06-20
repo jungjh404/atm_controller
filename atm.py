@@ -59,21 +59,10 @@ class ATM:
         if self.cash_bin < amount:
             return False, "Not Enough Cash Bin"
         
-        res = self.withdraw(self.user_card, self.selected_account, amount)
+        res = self.bank.withdraw(self.user_card, self.selected_account, amount)
         if not res[0]:
             return res
 
         self.cash_bin -= amount
         self.return_card()
         return res
-
-
-if __name__ == "__main__":
-    bank = Bank({"1111222233334444": {"pin_num": "0000", "account": {"primary": 300000, "saving": 100000000}}})
-    atm = ATM(bank, 1000000)
-    
-    # Check Card Init
-    atm.card_init("1111111111111111", "0000")
-    atm.card_init("1111222233334444", "1111")
-    atm.card_init("1111222233334444", "0000")
-    
