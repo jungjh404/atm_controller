@@ -1,24 +1,28 @@
 # atm_controller
-## Description
+>[1. Description](#1-description)  
+>[2. Environment](#2-environment)  
+>[3. Dependencies](#3-dependencies)  
+>[4. Installation](#4-installation)  
+>[5. Files](#5-files)  
+>[6. Usage](#6-usage)  
+>[7. Troubleshooting](#7-troubleshooting)  
+>>[1) Ubuntu](#1-ubuntu)  
+>>[2) MacOS](#2-mac-os)  
 
-    
-This repository is sample code of ATMcontroller for coding test.
-
-------------
-## Environment
+## 1. Description
+This repository is sample code of ATMcontroller for coding test.  
+## 2. Environment
 OS: Windows 11
 
-------------
-## Dependencies
+## 3. Dependencies
     Python >= 3.8.3
 
-------------
-## Installation
+## 4. Installation
 ```bash
 git clone https://github.com/jungjh404/atm_controller.git
 ```
-------------
-## Files
+
+## 5. Files
 ```bash
 ├──atm.py
 ├──bank.py
@@ -31,17 +35,16 @@ atm.py: It is controller of ATM.
 
 test.py: It is test file to check validity of ATM controller.
 
-------------
-## Usage
+## 6. Usage
 For testing atm controller, you can use test.py as follows
 
 ```bash
 python test.py
 ```
-## Troubleshooting
+## 7. Troubleshooting
 If you run this code in linux or mac, there will be encoding error.
 You can fix it by using dos2unix
-### Ubuntu
+### 1) Ubuntu
 ```bash
 sudo apt-get install dos2unix
 dos2unix atm.py
@@ -49,11 +52,10 @@ dos2unix bank.py
 dos2unix test.py
 ```
 
-### MAC OS
+### 2) MAC OS
 ```bash
 brew install dos2unix
 dos2unix atm.py
 dos2unix bank.py
 dos2unix test.py
 ```
-------------
