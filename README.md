@@ -8,7 +8,7 @@
     '''
 ------------
 ## Usage
-    For testing atm controller, you can use test.py as follows
+For testing atm controller, you can use test.py as follows
     '''bash
     python test.py
     '''
