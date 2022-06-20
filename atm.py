@@ -10,18 +10,39 @@ class ATM:
         self.selected_account = None
 
 
-    def card_init(self, card_num, pin_num):
-        res = self.bank.check_pin(card_num, pin_num)
-        if not res:
+    def card_insert(self, card_num):
+        if self.user_card is not None:
+            return False
+
+        if len(card_num) != 16:
+            return False
+        
+        if not card_num.isdigit():
             return False
         
         self.user_card = card_num
-        self.user_accounts = res
         return True
 
 
-    def get_account(self):
-        return self.user_accounts
+    def pin_check(self, pin_num):
+        if self.user_card is None:
+            return False, "Card is not inserted"
+
+        if len(pin_num) != 4:
+            self.return_card()
+            return False, "PIN number should be 4 digits long"
+        
+        if not pin_num.isdigit():
+            self.return_card()
+            return False
+
+        res = self.bank.check_pin(self.user_card, pin_num)
+        if not res:
+            self.return_card()
+            return False, "Wrong Card number / PIN number"
+        
+        self.user_accounts = res
+        return True, self.user_accounts
 
 
     def select_account(self, account):
