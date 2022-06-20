@@ -4,7 +4,7 @@ class Bank:
     
     def check_pin(self, card_num, pin_num):
         if card_num in self.db and self.db[card_num]["pin_num"] == pin_num:
-            return self.db[card_num]["account"]
+            return list(self.db[card_num]["account"].keys())
         
         else:
             return False
